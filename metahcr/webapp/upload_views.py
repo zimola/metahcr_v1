@@ -17,7 +17,7 @@ from django.core.files import File
 
 from metahcr import settings
 
-from upload_forms import SGAForm, MGAForm
+from upload_forms import SGAForm, MGAForm, SOPForm
 from django.core.exceptions import ObjectDoesNotExist
 from webapp.models import Sample, Attribute, Organism, BiologicalAnalysis
 from webapp.models import SingleGeneAnalysis, SingleGeneResult
@@ -88,6 +88,7 @@ def upload(request):
         databases.append({'name': value['NAME']})
     sga_form = SGAForm()
     mga_form = MGAForm()
+    sop_form = SOPForm()
     html = render_to_string('upload.html', RequestContext(request,
                                                           {'style': settings.VIEW_STYLE,
                                                            'database': databases,
@@ -98,7 +99,8 @@ def upload(request):
                                                            'sga_upload_log_filename': None,
                                                            'mga_form': mga_form,
                                                            'sample_name': None,
-                                                           'mga_upload_log_filename': None
+                                                           'mga_upload_log_filename': None,
+                                                           'sop_form': sop_form,
                                                            }))
     return HttpResponse(html)
 

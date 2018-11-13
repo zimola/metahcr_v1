@@ -13,3 +13,5 @@ class MGAForm(forms.Form):
     gene_function_file = forms.FileField()
     rna_file = forms.FileField()
 
+class SOPForm(forms.Form):
+    SOP_file = forms.FileField()

@@ -151,6 +151,21 @@ sga_download_log = function() {
     $.get('/sga_upload/log_file');
 };
 
+sop_submit_form = function() {
+    var formData = new FormData($('#sop-upload-form')[0]);
+    $.ajax({
+        url: "/sop_upload",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        type: 'POST',
+        success: function(data) {
+            $('#sop-analysis').html(data);
+        }
+    });
+};
+
 mga_submit_form = function() {
     if (!$('#id_scaffold_file').val() || !$('#id_gene_function_file').val() || !$('#id_rna_file').val()) {
         $.messager.alert('Missing Files', 'You must supply three files.', 'warning');
