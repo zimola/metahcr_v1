@@ -1,0 +1,21 @@
+<div class="instructions">
+    Select your SOP Excel (.xls) file to upload to MetaHCR.
+    <br>
+    <br>
+    <form id="sop-upload-form" action='/sop_upload'
+          method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ sop_form }}
+        </table>
+        <br>
+        <input type="button" value="Upload SOP File to MetaHCR Database" onclick="sop_submit_form()" style="margin-right: auto"/>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#sga-sample-names').datalist();
+        $('#sga-upload-log-file').linkbutton();
+    })
+</script>
