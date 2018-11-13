@@ -20,7 +20,7 @@ gdata==2.0.18
 itsdangerous==0.24
 multipledispatch==0.4.8
 path.py==8.1.2
-psycopg2==2.5.1
+psycopg2==2.7.5
 pycountry==1.5
 pyssdb==0.1.0
 python-dateutil==2.5.3
